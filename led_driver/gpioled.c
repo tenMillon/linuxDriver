@@ -111,6 +111,7 @@ static int __init led_init(void)
     printk("led-gpio num = %d\r\n", gpioled.led_gpio);
 
     /* 设置 GPIO1_IO03 为输出，并且输出高电平，默认关闭 LED 灯 */
+    gpio_request(timerdev.led_gpio, "led");
     ret = gpio_direction_output(gpioled.led_gpio, 1);
     if(ret < 0) {
         printk("can't set gpio!\r\n");
